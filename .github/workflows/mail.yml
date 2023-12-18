@@ -30,7 +30,7 @@ jobs:
             return `Get traffic data at ${time}`;
 
       - name: Set Traffic
-        id: traffic2
+        id: traffic
         uses: yi-Xu-0100/traffic-to-badge@v1.4.0
         with:
           my_token: ${{ secrets.PAT }}

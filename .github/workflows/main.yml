@@ -63,3 +63,8 @@ jobs:
           echo ${{ steps.traffic.outputs.traffic_path }}
           cd ${{ steps.traffic.outputs.traffic_path }}
           ls -a
+      - name: traffic details
+        uses: actions/upload-artifact@v3
+        with:
+          name: traffic_details
+          path: .traffic

@@ -51,17 +51,17 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.PAT }}
-          publish_branch: ${{ steps.traffic2.outputs.traffic2_branch }}
-          publish_dir: ${{ steps.traffic2.outputs.traffic2_path }}
+          publish_branch: ${{ steps.traffic2.outputs.traffic_branch }}
+          publish_dir: ${{ steps.traffic2.outputs.traffic_path }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           full_commit_message: ${{ steps.message.outputs.result }}
 
       - name: Show Traffic Data
         run: |
-          echo ${{ steps.traffic2.outputs.traffic2_branch }}
-          echo ${{ steps.traffic2.outputs.traffic2_path }}
-          cd ${{ steps.traffic2.outputs.traffic2_path }}
+          echo ${{ steps.traffic2.outputs.traffic_branch }}
+          echo ${{ steps.traffic2.outputs.traffic_path }}
+          cd ${{ steps.traffic2.outputs.traffic_path }}
           ls -a
       - name: traffic details
         uses: actions/upload-artifact@v3

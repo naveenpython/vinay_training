@@ -30,7 +30,7 @@ jobs:
             return `Get traffic data at ${time}`;
 
       - name: Set Traffic
-        id: traffic
+        id: traffic2
         uses: yi-Xu-0100/traffic-to-badge@v1.4.0
         with:
           my_token: ${{ secrets.PAT }}
@@ -51,20 +51,20 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.PAT }}
-          publish_branch: ${{ steps.traffic.outputs.traffic_branch }}
-          publish_dir: ${{ steps.traffic.outputs.traffic_path }}
+          publish_branch: ${{ steps.traffic2.outputs.traffic2_branch }}
+          publish_dir: ${{ steps.traffic2.outputs.traffic2_path }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           full_commit_message: ${{ steps.message.outputs.result }}
 
       - name: Show Traffic Data
         run: |
-          echo ${{ steps.traffic.outputs.traffic_branch }}
-          echo ${{ steps.traffic.outputs.traffic_path }}
-          cd ${{ steps.traffic.outputs.traffic_path }}
+          echo ${{ steps.traffic2.outputs.traffic2_branch }}
+          echo ${{ steps.traffic2.outputs.traffic2_path }}
+          cd ${{ steps.traffic2.outputs.traffic2_path }}
           ls -a
       - name: traffic details
         uses: actions/upload-artifact@v3
         with:
           name: traffic_details
-          path: .traffic
+          path: .traffic2
